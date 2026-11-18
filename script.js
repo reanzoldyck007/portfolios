@@ -83,8 +83,25 @@ $$('.project').forEach(card => card.addEventListener('click', () => {
 const vm = $('#video-modal'), video = $('#vm-video');
 $$('.video-card').forEach(card => card.addEventListener('click', () => {
   video.src = card.dataset.video;
+  vm.classList.toggle('landscape', card.dataset.shape === 'landscape');
   $('#vm-title').textContent = $('h3', card).textContent;
   vm.showModal();
   video.play().catch(() => {}); // autoplay may be blocked; controls are visible
 }));
 vm.addEventListener('close', () => { video.pause(); video.removeAttribute('src'); video.load(); });
+
+// Videos: first 4 show until expanded
+const videoCards = $$('.video-card'), videoBtn = $('#videos-toggle');
+let videosExpanded = false;
+function renderVideos() {
+  videoCards.forEach((c, i) => { c.hidden = !videosExpanded && i >= LIMIT; });
+  videoBtn.hidden = videoCards.length <= LIMIT;
+  videoBtn.textContent = videosExpanded ? 'Show fewer' : `Show all ${videoCards.length} videos`;
+  videoBtn.setAttribute('aria-expanded', videosExpanded);
+}
+videoBtn.addEventListener('click', () => {
+  videosExpanded = !videosExpanded;
+  renderVideos();
+  if (!videosExpanded) $('#video').scrollIntoView({ behavior: 'smooth' });
+});
+renderVideos();

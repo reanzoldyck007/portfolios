@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -177,6 +177,17 @@
       <h2 class="section-title">Video editing</h2>
       <!-- To add a video: put the .mp4 in videos/ and a poster in images/, then copy the article and change data-video, the img src, title and text. -->
       <div class="video-grid">
+        <article class="card video-card" data-video="videos/croptrends-walkthrough.mp4">
+          <div class="video-thumb">
+            <img src="images/video-croptrends.jpg" alt="Frame from the CropTrends walkthrough" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="card-body">
+            <h3>CropTrends walkthrough</h3>
+            <p>Product walkthrough with voiceover for CropTrends, a crop demand forecasting platform for Bohol.</p>
+            <p class="meta">Walkthrough · Voiceover · 0:51 · 9:16</p>
+          </div>
+        </article>
         <article class="card video-card" data-video="videos/edit-bridges.mp4">
           <div class="video-thumb">
             <img src="images/video-bridges.jpg" alt="Frame from a talking-head promo with animated captions" loading="lazy">
@@ -186,6 +197,39 @@
             <h3>Creator promo</h3>
             <p>Talking-head promo with kinetic captions, keyword highlights, icon overlays and cut-out text transitions.</p>
             <p class="meta">Short-form · 0:37 · 9:16</p>
+          </div>
+        </article>
+        <article class="card video-card" data-video="videos/nick-0936.mp4" data-shape="landscape">
+          <div class="video-thumb">
+            <img src="images/video-nick-0936.jpg" alt="Frame from Trade Like Nick: Options" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="card-body">
+            <h3>Trade Like Nick: Options</h3>
+            <p>Long-form finance episode for a client, cut with stock b-roll and bold two-tone animated captions.</p>
+            <p class="meta">Client · YouTube · 3:29 · 16:9</p>
+          </div>
+        </article>
+        <article class="card video-card" data-video="videos/nick-0938.mp4" data-shape="landscape">
+          <div class="video-thumb">
+            <img src="images/video-nick-0938.jpg" alt="Frame from Trade Like Nick: Money management" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="card-body">
+            <h3>Trade Like Nick: Money management</h3>
+            <p>Episode on trading rules, with b-roll, chart graphics and animated captions paced to the voiceover.</p>
+            <p class="meta">Client · YouTube · 2:57 · 16:9</p>
+          </div>
+        </article>
+        <article class="card video-card" data-video="videos/nick-0937.mp4" data-shape="landscape">
+          <div class="video-thumb">
+            <img src="images/video-nick-0937.jpg" alt="Frame from Trade Like Nick: Indicators" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div class="card-body">
+            <h3>Trade Like Nick: Indicators</h3>
+            <p>Episode on reading market indicators, built from stock footage with kinetic captions.</p>
+            <p class="meta">Client · YouTube · 2:04 · 16:9</p>
           </div>
         </article>
         <article class="card video-card" data-video="videos/edit-onic.mp4">
@@ -210,18 +254,8 @@
             <p class="meta">Montage · 0:38 · 9:16</p>
           </div>
         </article>
-        <article class="card video-card" data-video="videos/croptrends-walkthrough.mp4">
-          <div class="video-thumb">
-            <img src="images/video-croptrends.jpg" alt="Frame from the CropTrends walkthrough" loading="lazy">
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-          </div>
-          <div class="card-body">
-            <h3>CropTrends walkthrough</h3>
-            <p>Product walkthrough with voiceover for CropTrends, a crop demand forecasting platform for Bohol.</p>
-            <p class="meta">Walkthrough · Voiceover · 0:51 · 9:16</p>
-          </div>
-        </article>
       </div>
+      <div class="show-more"><button class="btn" id="videos-toggle" aria-expanded="false" hidden></button></div>
     </section>
 
     <section class="section container" id="experience">
@@ -288,6 +322,6 @@
     <div class="modal-body"><h3 id="vm-title"></h3></div>
   </dialog>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

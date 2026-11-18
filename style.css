@@ -139,11 +139,9 @@ h3 { font-size: var(--fs-base); }
 }
 .play svg { width: 18px; fill: var(--text); margin-left: 2px; }
 .video-card:hover .play { transform: scale(1.08); }
-/* vertical (9:16) videos: portrait player beside the details */
-.video-grid { display: grid; gap: var(--s5); }
-.video-card { display: grid; grid-template-columns: 260px 1fr; gap: var(--s4); align-items: center; }
+/* vertical (9:16) videos in a portrait grid */
+.video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4) var(--s3); }
 .video-card .video-thumb { aspect-ratio: 9 / 16; }
-.video-card .card-body { padding-top: 0; max-width: 46ch; }
 
 /* Experience */
 .cv li { display: grid; grid-template-columns: 120px 1fr; gap: var(--s3); padding: var(--s2) 0; border-top: 1px solid var(--line); }
@@ -201,6 +199,7 @@ h3 { font-size: var(--fs-base); }
   .section > :not(.section-title, .section-head), .section-head .filters { grid-column: 1; }
   .about-grid { grid-template-columns: 200px 1fr; gap: var(--s4); }
   .facts { grid-template-columns: repeat(2, 1fr); }
+  .video-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
   :root { --s6: 56px; --s7: 48px; }
@@ -219,8 +218,7 @@ h3 { font-size: var(--fs-base); }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { max-width: 280px; }
   .card-grid { grid-template-columns: 1fr; }
-  .video-card { grid-template-columns: 1fr; gap: var(--s2); }
-  .video-card .video-thumb { max-width: 280px; }
+  .video-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s3) var(--s2); }
   .modal.modal-video video { height: auto; max-height: 80vh; }
   .skills > div, .cv li { grid-template-columns: 1fr; gap: 2px; }
   .contact-list li { grid-template-columns: 1fr; gap: 6px; }

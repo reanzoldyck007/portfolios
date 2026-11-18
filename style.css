@@ -130,6 +130,9 @@ h3 { font-size: var(--fs-base); }
 .card:hover h3, .card:focus-visible h3 { background-size: 100% 1px; }
 .card-body p:not(.meta) { color: var(--text-2); font-size: var(--fs-sm); margin: 6px 0; }
 
+.show-more { margin-top: var(--s5); text-align: center; }
+.show-more .btn[hidden] { display: none; }
+
 /* Video */
 .video-thumb { position: relative; overflow: hidden; background: #000; }
 .video-thumb img { width: 100%; height: 100%; object-fit: cover; }

@@ -17,12 +17,29 @@ const spy = new IntersectionObserver(entries => entries.forEach(e => {
 }), { rootMargin: '-45% 0px -50% 0px' });
 $$('main section[id]').forEach(s => spy.observe(s));
 
-// Project filters
+// Project filters + "show all" (only the first 4 matches show until expanded)
+const LIMIT = 4;
+const moreBtn = $('#projects-toggle');
+let filter = 'all', expanded = false;
+function renderProjects() {
+  const matches = $$('.project').filter(c => filter === 'all' || c.dataset.category.split(',').includes(filter));
+  $$('.project').forEach(c => { c.hidden = !matches.includes(c) || (!expanded && matches.indexOf(c) >= LIMIT); });
+  moreBtn.hidden = matches.length <= LIMIT;
+  moreBtn.textContent = expanded ? 'Show fewer' : `Show all ${matches.length} projects`;
+  moreBtn.setAttribute('aria-expanded', expanded);
+}
 $$('.filter').forEach(btn => btn.addEventListener('click', () => {
   $$('.filter').forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-pressed', b === btn); });
-  const f = btn.dataset.filter;
-  $$('.project').forEach(c => { c.hidden = f !== 'all' && !c.dataset.category.split(',').includes(f); });
+  filter = btn.dataset.filter;
+  expanded = false;
+  renderProjects();
 }));
+moreBtn.addEventListener('click', () => {
+  expanded = !expanded;
+  renderProjects();
+  if (!expanded) $('#projects').scrollIntoView({ behavior: 'smooth' });
+});
+renderProjects();
 
 // Copy email to clipboard
 const copyBtn = $('#copy-email');
